@@ -5,7 +5,7 @@
 using namespace std;
 
 // Функция для генерации ядра Гаусса
-vector<vector<double>> generateGaussianKernel(int size, double sigma) {
+vector<vector<double>> generateGaussianKernel(int size, double sigma) { //создает двумерное ядро Гаусса, используя формулу Гаусса. Мы нормализуем ядро, чтобы сумма всех весов была равна 1
     vector<vector<double>> kernel(size, vector<double>(size));
     double sum = 0.0;
     int halfSize = size / 2;
@@ -28,7 +28,7 @@ vector<vector<double>> generateGaussianKernel(int size, double sigma) {
 }
 
 // Функция для применения гауссовского размытия
-vector<vector<double>> gaussianBlur(const vector<vector<int>>& image, int kernelSize, double sigma) {
+vector<vector<double>> gaussianBlur(const vector<vector<int>>& image, int kernelSize, double sigma) {//выполняет свертку изображения с ядром Гаусса. Мы проходим по каждому пикселю изображения и применяем ядро, учитывая пиксели вокруг текущего (с обработкой границ)
     int rows = image.size();
     int cols = image[0].size();
     vector<vector<double>> blurredImage(rows, vector<double>(cols, 0.0));
